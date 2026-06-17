@@ -9,7 +9,7 @@ spec:
   source:
     repoURL: git@github.com:Hai-NgoTruong/argocdlab.git 
     targetRevision: HEAD
-    path: argocdlab    # ← folder with your deployment.yaml
+    path: .    # ← folder with your deployment.yaml
   destination:
     server: https://kubernetes.default.svc
     namespace: default
