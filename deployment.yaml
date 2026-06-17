@@ -27,8 +27,8 @@ spec:
         app: mydeployment
     spec:
       containers:
-      - image: invoice:v1
-        imagePullPolicy: IfNotPresent
+      - image: invoice:latest
+        imagePullPolicy: Never 
         name: invoice
         resources: {}
         terminationMessagePath: /dev/termination-log
