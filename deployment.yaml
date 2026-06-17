@@ -7,8 +7,6 @@ metadata:
     app: mydeployment
   name: mydeployment
   namespace: default
-  resourceVersion: "1268"
-  uid: 6e80d86b-0945-48d1-9e52-98ad63e9dc17
 spec:
   progressDeadlineSeconds: 600
   replicas: 1
