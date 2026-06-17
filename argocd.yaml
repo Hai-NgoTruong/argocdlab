@@ -7,7 +7,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/your-username/your-repo   # ← your git repo
+    repoURL: git@github.com:Hai-NgoTruong/argocdlab.git 
     targetRevision: HEAD
     path: invoice    # ← folder with your deployment.yaml
   destination:
