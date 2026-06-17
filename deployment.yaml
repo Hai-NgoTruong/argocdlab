@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: "2026-06-17T14:38:10Z"
+  generation: 1
+  labels:
+    app: mydeployment
+  name: mydeployment
+  namespace: default
+  resourceVersion: "1268"
+  uid: 6e80d86b-0945-48d1-9e52-98ad63e9dc17
+spec:
+  progressDeadlineSeconds: 600
+  replicas: 1
+  revisionHistoryLimit: 10
+  selector:
+    matchLabels:
+      app: mydeployment
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        app: mydeployment
+    spec:
+      containers:
+      - image: invoice:v1
+        imagePullPolicy: IfNotPresent
+        name: invoice
+        resources: {}
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      terminationGracePeriodSeconds: 30
+status: {}

@@ -1,0 +1,19 @@
+# argocd-app.yaml
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: invoice
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/your-username/your-repo   # ← your git repo
+    targetRevision: HEAD
+    path: invoice    # ← folder with your deployment.yaml
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: default
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
