@@ -9,7 +9,7 @@ replicaCount: 2
 image:
   repository: invoice
   # This sets the pull policy for images.
-  pullPolicy: Always 
+  pullPolicy: Never 
   # Overrides the image tag whose default is the chart appVersion.
   tag: "prod"
 
