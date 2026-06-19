@@ -1,0 +1,26 @@
+# argocd-app.yaml
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: invoice-dev
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: git@github.com:Hai-NgoTruong/argocdlab.git 
+    targetRevision: develop # track on develop branch
+    path: invoice
+    helm:
+      valueFiles:
+      - values.yaml
+      - values-dev.yaml
+
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: invoice-dev
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
